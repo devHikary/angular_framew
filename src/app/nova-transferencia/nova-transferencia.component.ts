@@ -14,5 +14,7 @@ export class NovaTransferenciaComponent {
 
   transferir(){
     this.aoTransferir.emit({valor: this.valor, destino: this.destino})
+    this.valor = 0;
+    this.destino = '';
   }
 }
