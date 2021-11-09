@@ -1,6 +1,7 @@
 import { registerLocaleData } from '@angular/common';
 import { Component, DEFAULT_CURRENCY_CODE, Input, LOCALE_ID, OnInit } from '@angular/core';
 import localPt from '@angular/common/locales/pt'
+import { TransferenciaService } from '../services/transferencia.service';
 
 
 registerLocaleData(localPt, 'pt')
@@ -18,11 +19,12 @@ registerLocaleData(localPt, 'pt')
 })
 export class ExtratoComponent implements OnInit {
 
-  @Input() transferencias: any[];
+  transferencias: any[];
 
-  constructor() { }
+  constructor(private service: TransferenciaService) { }
 
   ngOnInit(): void {
+    this.transferencias = this.service.transferencias;
   }
 
   
